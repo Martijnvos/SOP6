@@ -17,21 +17,21 @@ Follow these steps:
     1.10 Copy the token.  
     :warning: Be careful, this is your only chance to copy it!  
 
-2. Add Access Token to Jenkins
-    2.1 Select 'Credentials' in the left column of the dashboard
-    2.2 Click on 'Global' under domain
-    2.3 Select 'Add Credentials'
-    2.4 Under 'Kind' select 'Secret text'
-    2.5 Keep 'Scope' at 'Global'
-    2.6 Paste the GitHub Acccess Token in 'Secret'
-    2.7 Enter a meaningful description (mine is 'SOP6 GitHub secret')
+2. Add Access Token to Jenkins  
+    2.1 Select 'Credentials' in the left column of the dashboard  
+    2.2 Click on 'Global' under domain  
+    2.3 Select 'Add Credentials'  
+    2.4 Under 'Kind' select 'Secret text'  
+    2.5 Keep 'Scope' at 'Global'  
+    2.6 Paste the GitHub Acccess Token in 'Secret'  
+    2.7 Enter a meaningful description (mine is 'SOP6 GitHub secret')  
     
-3. Set up Jenkins GitHub settings
-    3.1 Select 'Manage Jenkins' in the left column of the dashboard
-    3.2 Select 'Configure System'
-    3.3 Under 'GitHub' add a GitHub server with the default API URL
-    3.4 Select the recently created credentials ('SOP6 GitHub secret')
-    3.5 Apply the changes and test the connection using the 'Test Connection' button
+3. Set up Jenkins GitHub settings  
+    3.1 Select 'Manage Jenkins' in the left column of the dashboard  
+    3.2 Select 'Configure System'  
+    3.3 Under 'GitHub' add a GitHub server with the default API URL  
+    3.4 Select the recently created credentials ('SOP6 GitHub secret')  
+    3.5 Apply the changes and test the connection using the 'Test Connection' button  
 
     :warning: **Note:** You have 5000 requests per hour for all GitHub integrations (not just Jenkins)
 
@@ -40,17 +40,17 @@ Follow these steps:
     4.2 Select 'Webhooks'  
     4.3 Select 'Add webhook'  
     4.4 Fill the 'Payload URL' input with ```{YOUR_JENKINS_URL}/github-webhook/```.  
-    In our case that'll be the Ngrok URL shown in the console as we're exposing our localhost
-    4.5 Select 'application/json' as Content type
-    4.6 Leave 'Secret' blank and select 'Just the push event' as trigger
-    4.7 Make sure the 'Active' checkbox is ticked
-    4.8 Add the webhook
+    In our case that'll be the Ngrok URL shown in the console as we're exposing our localhost  
+    4.5 Select 'application/json' as Content type  
+    4.6 Leave 'Secret' blank and select 'Just the push event' as trigger  
+    4.7 Make sure the 'Active' checkbox is ticked  
+    4.8 Add the webhook  
 
 5. Set up the Jenkins job itself  
-   5.1 Select the desired job (mine is SOP6)
-   5.2 Select 'Settings'
-   5.3 Under 'Build Triggers' check 'GitHub hook trigger for GITScm polling'
-   5.4 Make sure to save the configuration
+   5.1 Select the desired job (mine is SOP6)  
+   5.2 Select 'Settings'  
+   5.3 Under 'Build Triggers' check 'GitHub hook trigger for GITScm polling'  
+   5.4 Make sure to save the configuration  
    
 DONE! :smile:
 Jenkins should now start your job whenever a new commit is pushed to your repository.
