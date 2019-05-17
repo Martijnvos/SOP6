@@ -1,0 +1,32 @@
+version: "3"
+services:
+
+  sop6-postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: sop6
+      POSTGRES_DB: sop6
+    volumes:
+      - postgres_database:/var/lib/postgresql/data
+
+  sop6-payara:
+    image: payara/server-full
+    ports:
+      - "8080:8080"
+      - "4848:4848"
+      - "8181:8181"
+    volumes:
+      - ./:/opt/payara/deployments
+
+  sop6-jenkins:
+    image: jenkins/jenkins
+    ports:
+      - "9090:8080"
+      - "50000:50000"
+    volumes:
+      - ./jenkins-data:/var/jenkins_home
+
+volumes:
+  postgres_database:
+    external: true
