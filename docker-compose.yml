@@ -24,6 +24,8 @@ services:
     ports:
       - "9090:8080"
       - "50000:50000"
+    environment:
+      JENKINS_OPTS: "mail.smtp.starttls.enable=true"
     volumes:
       - ./jenkins-data:/var/jenkins_home
 
