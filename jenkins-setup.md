@@ -93,4 +93,27 @@ This is how to set it up:
 By default, the build job will fail if the code does not compile or if any of the unit tests fail.
 
 ## 4. Send email when build fails
-TODO
+In order to send out mail you need to have a SMTP server that can handle it.  
+I tried to hook it up to the Fontys organizational Outlook account I have, but that didn't go according to plan because 
+a lack of direct send capabilities ([Source](https://answers.microsoft.com/en-us/msoffice/forum/all/client-was-not-authenticated-to-send-anonymous/d405bcb0-f40c-42fa-b1b2-477597100123)). 
+I settled on using [SendGrid](https://sendgrid.com) as the sender of the email.
+
+This is how I set it all up:
+
+1. Select 'Manage Jenkins' in the left pane and navigate to 'Configure System'
+2. Scroll down to 'Jenkins Location' and fill in 'System Admin e-mail address'
+3. Scroll down to 'E-mail notification'
+4. Fill your SMTP details using SMPT authentication. For me:  
+    * SMTP Server: smtp.sendgrid.net
+    * User Name: apikey
+    * Password: {YOUR_SENDGRID_API_KEY}
+    * Keep 'Use SSL' **off**!
+    * SMTP Port: 587
+    * Reply-To Address: {YOUR_MAIL_ADDRESS}
+    * Keep 'Charset' at UTF-8
+    * Save the changes
+
+Helpful sources for this were [this Jenkins issue](https://issues.jenkins-ci.org/browse/JENKINS-47939?focusedCommentId=319577&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-319577)
+in combination with [this guide](https://www.learnitguide.net/2018/08/how-to-configure-jenkins-mail.html).  
+Some of the information in these articles is contradicting though.  
+The combination of them made it work, so don't blindly follow the links.
