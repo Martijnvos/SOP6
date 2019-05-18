@@ -117,3 +117,13 @@ Helpful sources for this were [this Jenkins issue](https://issues.jenkins-ci.org
 in combination with [this guide](https://www.learnitguide.net/2018/08/how-to-configure-jenkins-mail.html).  
 Some of the information in these articles is contradicting though.  
 The combination of them made it work, so don't blindly follow the links.
+
+In order to actually fire the e-mail on build failure you have to do the following:
+
+1. Select the job (mine is SOP6)
+2. Select 'Configure' in the left pane
+3. Scroll down to 'Post-build actions' and select 'Add post-build action'
+4. Select 'Email Notification' from the dropdown
+5. Fill in the recipient(s) mail address(es)
+6. Make sure 'Send e-mail for every unstable build' is checked.  
+Sending separate emails to individuals who broke the build is optional here.
