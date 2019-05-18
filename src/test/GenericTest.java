@@ -7,4 +7,9 @@ public class GenericTest {
     public void shouldPass() {
         assertTrue(true);
     }
+
+    @Test
+    public void shouldFail() {
+        assertTrue(false);
+    }
 }
