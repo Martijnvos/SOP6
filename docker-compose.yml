@@ -29,6 +29,13 @@ services:
     volumes:
       - ./jenkins-data:/var/jenkins_home
 
+  sop6-sonarqube:
+    image: sonarqube
+    ports:
+      - "9000:9000"
+    volumes:
+    - ./sonarqube-data:/opt/sonarqube/data
+
 volumes:
   postgres_database:
     external: true
