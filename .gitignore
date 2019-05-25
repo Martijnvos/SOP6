@@ -3,6 +3,7 @@
 ######################
 
 /jenkins-data
+/sonarqube-data
 
 ######################
 # GENERAL #
