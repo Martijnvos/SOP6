@@ -43,6 +43,6 @@ The fix above has been integrated into the ```docker-compose.yml``` file.
 Tip: in case you want to know where docker created the volume you can run ```docker volume inspect postgres_database```.
 
 ## :hammer_and_wrench: Configuration
-Configuration steps can be found in ```jenkins-setup.md``` and ```payara-setup.md``` because of the amount of 
+Configuration steps can be found in ```jenkins-setup.md``` , ```payara-setup.md``` and ```sonarqube-setup.md``` because of the amount of 
 screenshots.  
 The PostgreSQL database doesn't need further configuration for this project.
